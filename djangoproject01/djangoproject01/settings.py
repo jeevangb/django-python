@@ -46,7 +46,10 @@ INSTALLED_APPS = [
     'myapp5',
     'myapp6',
     'myapp7',
-    'myapp8'
+    'myapp8',
+    'cookieapp',
+    'cookieapp1',
+    'cookiepagecountapp',
 ]
 
 MIDDLEWARE = [
