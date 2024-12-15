@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'cookieapp',
     'cookieapp1',
     'cookiepagecountapp',
+    'sessionapp',
+    'testcookieapp',
+    'sessionpagecountapp',
 ]
 
 MIDDLEWARE = [
@@ -136,6 +139,9 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 
+SESSION_COOKIE_AGE=60
+SESSION_COOKIE_NAME="Mysession"
+SESSION_COOKIE_PATH="/login"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
