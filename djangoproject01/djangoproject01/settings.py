@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+
+from django.conf.global_settings import SESSION_ENGINE, SESSION_FILE_PATH
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_DIR = os.path.join(BASE_DIR,'static')
@@ -53,6 +56,7 @@ INSTALLED_APPS = [
     'sessionapp',
     'testcookieapp',
     'sessionpagecountapp',
+    'sessionexpiredapp',
 ]
 
 MIDDLEWARE = [
@@ -139,9 +143,15 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 
-SESSION_COOKIE_AGE=60
-SESSION_COOKIE_NAME="Mysession"
-SESSION_COOKIE_PATH="/login"
+SESSION_COOKIE_AGE = 30
+# SESSION_COOKIE_NAME="Mysession"
+# SESSION_COOKIE_PATH="/login"
+
+# for file based session
+
+# SESSION_ENGINE = 'django.contrib.sessions.backends.file'
+# SESSION_FILE_PATH = os.path.join(BASE_DIR,'session')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
