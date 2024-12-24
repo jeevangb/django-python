@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+
+from django.conf.global_settings import SESSION_ENGINE, SESSION_FILE_PATH, CACHE_MIDDLEWARE_SECONDS
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_DIR = os.path.join(BASE_DIR,'static')
@@ -50,12 +53,20 @@ INSTALLED_APPS = [
     'cookieapp',
     'cookieapp1',
     'cookiepagecountapp',
+    'sessionapp',
+    'testcookieapp',
+    'sessionpagecountapp',
+    'sessionexpiredapp',
+    'cacheapp',
+    'authenticationapp',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # 'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
+    # 'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -135,6 +146,41 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
+
+CACHE_MIDDLEWARE_SECONDS=30
+
+# database cache
+# CACHES={
+#     'default':{
+#         'BACKEND':'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION':'cacheapp_cache',
+#     }
+# }
+
+#file based cache
+# CACHES={
+#     'default':{
+#         'BACKEND':'django.core.cache.backends.filebased.FileBasedCache',
+#         'LOCATION':'C:/Users/HP/Desktop/django-python/djangoproject01/cache',
+#     }
+# }
+
+# rammem based cache
+CACHES={
+    'default':{
+        'BACKEND':'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION':'',
+    }
+}
+
+SESSION_COOKIE_AGE = 30
+# SESSION_COOKIE_NAME="Mysession"
+# SESSION_COOKIE_PATH="/login"
+
+# for file based session
+
+# SESSION_ENGINE = 'django.contrib.sessions.backends.file'
+# SESSION_FILE_PATH = os.path.join(BASE_DIR,'session')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

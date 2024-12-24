@@ -29,5 +29,11 @@ urlpatterns = [
     path('myapp8/',include('myapp8.urls')),
     path('cookieapp/',include('cookieapp.urls')),
     path('cookieapp1',include('cookieapp1.urls')),
-    path('',include('cookiepagecountapp.urls')),
+    path('cookiepagecountapp',include('cookiepagecountapp.urls')),
+    path('sessionapp',include('sessionapp.urls')),
+    path('testcookieapp',include('testcookieapp.urls')),
+    path('sessionpagecountapp',include('sessionpagecountapp.urls')),
+    path('sessionexpiredapp',include('sessionexpiredapp.urls')),
+    path('cacheapp',include('cacheapp.urls')),
+    path('',include('authenticationapp.urls')),
 ]
