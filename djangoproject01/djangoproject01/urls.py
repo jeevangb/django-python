@@ -34,5 +34,6 @@ urlpatterns = [
     path('testcookieapp',include('testcookieapp.urls')),
     path('sessionpagecountapp',include('sessionpagecountapp.urls')),
     path('sessionexpiredapp',include('sessionexpiredapp.urls')),
-    path('',include('cacheapp.urls')),
+    path('cacheapp',include('cacheapp.urls')),
+    path('',include('authenticationapp.urls')),
 ]
